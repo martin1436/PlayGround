@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#090b14">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>KI LEGENDS — Rift Arena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Ki Legends inicio"><span class="brand-mark">K<span>✦</span></span><span class="brand-name">KI<span>LEGENDS</span></span></a>
+      <div class="season-tag"><i></i> TEMPORADA 04 <span>·</span> RIFT ARENA</div>
+      <div class="top-actions"><div class="currency"><span class="coin">✦</span><b id="currency">1,250</b><button class="plus" aria-label="Más zenis">+</button></div><button class="icon-btn" id="soundBtn" aria-label="Activar o silenciar audio">♫</button><button class="avatar" title="Perfil">S</button></div>
+    </header>
+    <div class="game-layout">
+      <aside class="sidebar">
+        <div class="pilot-card"><div class="pilot-avatar" id="pilotAvatar"><span>悟</span><i class="online-dot"></i></div><div class="pilot-info"><strong id="pilotName">SAIYAN</strong><small>GUERRERO · NIVEL <b id="levelSmall">08</b></small></div><button class="edit-pilot" id="editRace" aria-label="Elegir raza">✎</button></div>
+        <div class="xp-block"><div class="xp-label"><span>PROGRESO DE KI</span><b id="xpLabel">2,450 / 3,200</b></div><div class="xp-track"><i id="xpBar"></i></div></div>
+        <div class="side-label">MENÚ PRINCIPAL</div>
+        <nav class="main-nav" aria-label="Menú principal">
+          <button class="nav-item active" data-tab="arena"><span class="nav-icon">◈</span><span>Arena de combate</span><b class="live-pip"></b></button>
+          <button class="nav-item" data-tab="missions"><span class="nav-icon">▤</span><span>Misiones</span><em>3</em></button>
+          <button class="nav-item" data-tab="skills"><span class="nav-icon">✧</span><span>Técnicas & formas</span></button>
+          <button class="nav-item" data-tab="dragon"><span class="nav-icon">🐉</span><span>Altar del dragón</span></button>
+          <button class="nav-item" data-tab="allies"><span class="nav-icon">♙</span><span>Aliados</span></button>
+        </nav>
+        <div class="side-label collection-label">COLECCIÓN</div>
+        <div class="collection-card"><div class="collection-art">✦</div><div><b>Archivo Z</b><small>12 / 48 desbloqueados</small></div><span>›</span></div>
+        <div class="sidebar-bottom"><div class="season-mini"><span class="season-icon">⚡</span><div><b>Pase de guerrero</b><small>Temporada 04 · 12 d</small></div><span class="arrow">↗</span></div><div class="version">KI LEGENDS <span>v1.4.0</span></div></div>
+      </aside>
+      <section class="main-content" id="mainContent">
+        <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> CAMPO DE BATALLA <span class="eyebrow-dot">●</span> SECTOR 07</div><h1>RIFT <span>ARENA</span></h1><p class="heading-sub">El siguiente desafío te espera, guerrero.</p></div><button class="help-btn" id="helpBtn">? <span>CONTROLES</span></button></div>
+        <section class="arena-card" aria-label="Arena de combate">
+          <canvas id="gameCanvas" aria-label="Combate interactivo"></canvas>
+          <div class="arena-vignette"></div>
+          <div class="arena-top"><div class="zone-pill"><span>◉</span> PLANETA NAMEK <i>·</i> ZONA DE COMBATE</div><div class="wave-pill"><span class="wave-dot"></span> OLEADA <b id="waveNum">02</b><span class="wave-divider">/</span><span id="waveTotal">05</span></div></div>
+          <div class="combatant player-hud"><div class="hud-portrait player-portrait" id="heroPortrait">悟</div><div class="hud-data"><div class="hud-name"><b id="heroHudName">KAI</b><span class="form-tag" id="formTag">BASE</span></div><div class="bar-row"><span>HP</span><div class="bar hp"><i id="hpBar"></i></div><small id="hpText">100%</small></div><div class="bar-row"><span>KI</span><div class="bar ki"><i id="kiBar"></i></div><small id="kiText">76%</small></div></div></div>
+          <div class="enemy-hud"><div class="enemy-info"><span class="enemy-class" id="enemyClass">ÉLITE · ANDROIDE</span><b id="enemyName">ANDROID 17</b><div class="bar-row"><span>HP</span><div class="bar enemy-bar"><i id="enemyBar"></i></div></div></div><div class="enemy-portrait" id="enemyPortrait">17</div></div>
+          <div class="arena-toast" id="arenaToast"><span>✦</span> ¡OLEADA COMPLETADA! <small>+250 XP</small></div>
+          <div class="arena-bottom"><div class="combat-tip"><span class="tip-icon">⌖</span><span id="combatHint">Toca <b>ATACAR</b> o pulsa <b>ESPACIO</b></span></div><div class="arena-coords">27° N &nbsp;·&nbsp; NAMEK</div></div>
+        </section>
+        <div class="arena-controls">
+          <div class="control-hint"><span class="keycap">W</span><span class="keycap">A</span><span class="keycap">S</span><span class="keycap">D</span><small>MOVER</small></div>
+          <div class="skill-controls"><button class="skill-btn" id="blastBtn"><span class="skill-key">Z</span><span class="skill-glyph">✺</span><span class="skill-label">KI BLAST</span><span class="cooldown" id="blastCd"></span></button><button class="skill-btn" id="specialBtn"><span class="skill-key">X</span><span class="skill-glyph">◈</span><span class="skill-label">KAMEHAMEHA</span><span class="cooldown" id="specialCd"></span></button><button class="skill-btn transform-btn" id="transformBtn"><span class="skill-key">⇧</span><span class="skill-glyph">ϟ</span><span class="skill-label">TRANSFORMAR</span></button><button class="skill-btn support-btn" id="supportBtn"><span class="skill-key">E</span><span class="skill-glyph">♙</span><span class="skill-label">ALIADO</span></button></div>
+          <button class="attack-btn" id="attackBtn"><span>⚔</span> ATACAR <small>SPACE</small></button>
+        </div>
+        <div class="mobile-controls"><div class="dpad"><button data-move="up" aria-label="Mover arriba">▲</button><div><button data-move="left" aria-label="Mover a la izquierda">◀</button><button data-move="down" aria-label="Mover abajo">▼</button><button data-move="right" aria-label="Mover a la derecha">▶</button></div></div><span class="move-label">MOVER GUERRERO</span></div>
+      </section>
+      <aside class="right-panel">
+        <div class="panel-topline"><span>ACTIVIDAD</span><button aria-label="Más actividad">···</button></div>
+        <section class="mission-feature"><div class="feature-image"><div class="planet-orb"></div><span class="feature-mark">✦</span><span class="feature-caption">EVENTO ACTIVO <i>●</i></span></div><div class="feature-content"><div class="feature-meta"><span>EVENTO DE TEMPORADA</span><span class="time-left">⏱ 12D 08H</span></div><h2>FRACTURA<br>EN NAMEK</h2><p>Una grieta dimensional trajo nuevos rivales. ¡Detenlos!</p><div class="event-progress"><span>PROGRESO DEL EVENTO</span><b id="eventProgress">2 / 8</b><div><i id="eventBar"></i></div></div><button class="event-btn" id="eventBtn">VER EVENTO <span>↗</span></button></div></section>
+        <section class="daily-section"><div class="section-heading"><h3>DESAFÍOS DIARIOS</h3><span>SE REINICIA EN 08:42:16</span></div><div class="daily-list"><div class="daily-item"><span class="daily-icon orange">⚔</span><div class="daily-copy"><b>Gana 3 combates</b><div><i><span id="winProgress"></span></i><small id="wins">1/3</small></div></div><span class="reward">✦ 120</span></div><div class="daily-item"><span class="daily-icon blue">✺</span><div class="daily-copy"><b>Usa 5 técnicas de Ki</b><div><i><span id="kiProgress"></span></i><small id="kiUses">2/5</small></div></div><span class="reward">✦ 80</span></div></div></section>
+        <section class="race-section"><div class="section-heading"><h3>ELIGE TU RAZA</h3><button id="raceMore">VER TODAS <span>›</span></button></div><div class="race-grid" id="raceGrid"><button class="race-option selected" data-race="Saiyan" title="Saiyan"><span>悟</span><small>SAIYAN</small></button><button class="race-option" data-race="Namekiano" title="Namekiano"><span>ナ</span><small>NAMEK</small></button><button class="race-option" data-race="Androide" title="Androide"><span>∞</span><small>ANDROID</small></button><button class="race-option" data-race="Majin" title="Majin"><span>魔</span><small>MAJIN</small></button></div><div class="race-bonus" id="raceBonus"><span>✦</span> +15% poder de ataque <b>SAIYAN</b></div></section>
+        <div class="support-card"><div class="support-avatar">克</div><div><span>ALIADO EQUIPADO</span><b>KRILIN <i>· NIV. 12</i></b><small>Disparo solar listo</small></div><button id="allyBtn" aria-label="Cambiar aliado">↗</button></div>
+      </aside>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <div class="modal-backdrop" id="modalBackdrop" hidden><div class="modal" role="dialog" aria-modal="true"><button class="modal-close" id="modalClose">×</button><div class="modal-eyebrow">KI LEGENDS · GUÍA RÁPIDA</div><h2 id="modalTitle">CONTROLES</h2><div class="modal-body" id="modalBody"></div><button class="modal-confirm" id="modalConfirm">ENTENDIDO <span>→</span></button></div></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
